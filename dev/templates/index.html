@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- 
+  Parkplatz-Erkennungs Weboberfläche
+  Eine Prototyp-Benutzeroberfläche zur Überwachung der Parkplatzbelegung
+  Teil des Applied Robotics Kursprojekts von Gruppe 1
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Parking Space Detection – Group 1</title>
+    <meta
+      name="description"
+      content="Prototype UI for monitoring parking space occupancy (Applied Robotics – Group 1)."
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Hauptcontainer-Wrapper -->
+    <div class="wrap">
+      <!-- Anwendungskopf mit Navigation und Kennzahlen -->
+      <header class="appbar" role="banner">
+        <div class="toprow">
+          <div class="brand">
+            <div class="logo" aria-hidden="true"></div>
+            <div>
+              <h1>
+                Parking Space Detection
+                <span class="subtle">· Prototype UI</span>
+              </h1>
+              <div class="tagline">
+                Applied Robotics · Group 1 – Hoferer · Hümmer · Kaiser · Seifert
+                · Völker
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leistungskennzahlen (KPIs) zur Anzeige der Parkplatzstatistiken -->
+        <div class="kpis" aria-label="Overall status">
+          <div class="chip" title="Total bays detected">
+            <span class="subtle">Total Bays</span>
+            <b data-kpi="total">128</b>
+          </div>
+          <div class="chip" title="Currently available">
+            <span class="subtle">Available</span>
+            <b data-kpi="available" style="color: var(--ok)">47</b>
+          </div>
+          <div class="chip" title="Currently occupied">
+            <span class="subtle">Occupied</span>
+            <b data-kpi="occupied" style="color: var(--bad)">81</b>
+          </div>
+          <div class="chip" title="Data freshness">
+            <span class="subtle">Last update</span>
+            <div style="display: flex; align-items: center; gap: 8px">
+              <span data-kpi="updated">16:34</span>
+              <span class="status-dot" style="background: var(--brand)"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Hauptinhaltsbereich mit Karten- und Listenansichten -->
+      <main class="mcontent" role="main">
+        <!-- Kartenbereich mit Parkplatzübersicht -->
+        <section class="panel" aria-labelledby="map-title">
+          <h2 id="map-title">Area Map</h2>
+          <div class="map-shell" role="img" aria-label="Parking area preview">
+            <div class="hint">
+              <p class="subtle">Map / camera feed placeholder</p>
+              <p class="subtle">
+                Embed your tile map, drone feed, or static image here.
+              </p>
+            </div>
+            <div class="legend" aria-label="Legend">
+              <div class="row">
+                <span class="badge available">Available</span>
+                <span class="subtle">free bay</span>
+              </div>
+              <div class="row">
+                <span class="badge occupied">Occupied</span>
+                <span class="subtle">car detected</span>
+              </div>
+              <div class="row">
+                <span class="badge unknown">Unknown</span>
+                <span class="subtle">no signal</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          Prototype UI for <strong>Applied Robotics</strong> · Parking Space
+          Detection
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
